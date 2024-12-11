@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recrutamento da FXP(beta)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c003e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            position: relative;
+        }
+        .container {
+            background-color: #1a001f; 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #9b59b6; 
+        }
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #9b59b6; 
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #1a001f; 
+            color: white;
+        }
+        input:focus, textarea:focus {
+            border-color: #8e44ad; 
+            outline: none;
+        }
+        .emoji {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #9b59b6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #8e44ad; 
+        }
+        
+        .creditos {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        
+        .radio-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .radio-buttons input[type="radio"] {
+            display: none; 
+        }
+
+        .radio-buttons label {
+            background-color: #3498db; 
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            width: 100px;
+            transition: background-color 0.3s;
+        }
+        /*a cor quando escolher sim ou nao*/
+        .radio-buttons input[type="radio"]:checked + label {
+            background-color: #1f06ff; 
+        }
+
+        .radio-buttons label:hover {
+            background-color: #719134; /* passar o mouse por cima */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Recrutamento da FXP(beta)</h1>
+
+        <form id="recrutamento-form">
+            <!-- Pergunta 1: Nome -->
+            <label for="nome">👤 Qual seu nome?</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <!--pergunta de teste-->
+            <label for="nameteste">teste de frase</label>
+            <input type="color #0000" id="nameteste" name="nameteste"
+
+            <!-- Pergunta 2: Nametag -->
+            <label for="nametag">🎮 Qual sua nametag?</label>
+            <input type="text" id="nametag" name="nametag" required>
+
+            <!-- Pergunta 3: Plataforma -->
+            <label for="plataforma">💻 Qual sua plataforma?</label>
+            <input type="text" id="plataforma" name="plataforma" required>
+
+            <!-- Pergunta 4: Motivo -->
+            <label for="motivo">❓ Por qual motivo você quer entrar?</label>
+            <textarea id="motivo" name="motivo" rows="4" required></textarea>
+
+            <!-- Pergunta 5: Idade -->
+            <label for="idade">🤔 Qual sua idade?</label>
+            <input type="number" id="idade" name="idade" required>
+
+            <!-- Pergunta 6: Funcionalidade -->
+            <label for="funcionalidade">🔧 Qual sua funcionalidade?</label>
+            <input type="text" id="funcionalidade" name="funcionalidade" required>
+
+            <!--pergunta 7: teste-->
+            <label for=""
+
+            <!-- Pergunta 8: Clan -->
+            <label for="clan">💥 Você já foi de algum clan?</label>
+            <div class="radio-buttons">
+                <input type="radio" id="sim" name="clan" value="Sim" required>
+                <label for="sim">Sim</label>
+                <input type="radio" id="nao" name="clan" value="Não">
+                <label for="nao">Não</label>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <div class="creditos">
+        Créditos: <a href="mailto:contato@fxp.com" style="color: #aaa;">codernador de logistica mcflay</a>
+    </div>
+
+    <script>
+        document.getElementById("recrutamento-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+           
+            const nome = document.getElementById("nome").value;
+            const nametag = document.getElementById("nametag").value;
+            const plataforma = document.getElementById("plataforma").value;
+            const motivo = document.getElementById("motivo").value;
+            const idade = document.getElementById("idade").value;
+            const funcionalidade = document.getElementById("funcionalidade").value;
+            const clan = document.querySelector('input[name="clan"]:checked').value;
+
+            // Criar arquivo txt(temporario)
+            const content = `
+                Nome: ${nome}
+                Nametag: ${nametag}
+                Plataforma: ${plataforma}
+                Motivo: ${motivo}
+                Idade: ${idade}
+                Funcionalidade: ${funcionalidade}
+                Clan: ${clan}
+                nameteste: ${nameteste}
+            `;
+
+            
+            const blob = new Blob([content], { type: 'text/plain' });
+
+            // Criando um link temporário para download
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'respostas_recrutamento.txt';  // Nome do arquivo
+            link.click();  // Aciona o download
+
+            // mensagem que abaixou
+            alert('isso e apenas um teste!');
+        });
+    </script>
+
+</body>
+</html>
