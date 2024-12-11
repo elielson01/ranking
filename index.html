@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,10 +50,6 @@
             border-color: #8e44ad; 
             outline: none;
         }
-        .emoji {
-            font-size: 20px;
-            margin-right: 8px;
-        }
         button {
             padding: 12px 20px;
             background-color: #9b59b6;
@@ -68,7 +64,7 @@
         button:hover {
             background-color: #8e44ad; 
         }
-        
+
         .creditos {
             position: absolute;
             bottom: 10px;
@@ -77,7 +73,6 @@
             color: #aaa;
         }
 
-        
         .radio-buttons {
             display: flex;
             gap: 10px;
@@ -100,13 +95,13 @@
             width: 100px;
             transition: background-color 0.3s;
         }
-        /*a cor quando escolher sim ou nao*/
+
         .radio-buttons input[type="radio"]:checked + label {
             background-color: #1f06ff; 
         }
 
         .radio-buttons label:hover {
-            background-color: #719134; /* passar o mouse por cima */
+            background-color: #719134;
         }
     </style>
 </head>
@@ -115,14 +110,10 @@
     <div class="container">
         <h1>Recrutamento da FXP(beta)</h1>
 
-        <form id="recrutamento-form">
+        <form action="https://formsubmit.co/gerfocenow199@gmail.com" method="POST">
             <!-- Pergunta 1: Nome -->
             <label for="nome">👤 Qual seu nome?</label>
-            <input type="text" id="nome" name="nome" required>
-
-            <!--pergunta de teste-->
-            <label for="nameteste">teste de frase</label>
-            <input type="color #0000" id="nameteste" name="nameteste"
+            <input type="text" id="nome" name="name" required>
 
             <!-- Pergunta 2: Nametag -->
             <label for="nametag">🎮 Qual sua nametag?</label>
@@ -144,10 +135,7 @@
             <label for="funcionalidade">🔧 Qual sua funcionalidade?</label>
             <input type="text" id="funcionalidade" name="funcionalidade" required>
 
-            <!--pergunta 7: teste-->
-            <label for=""
-
-            <!-- Pergunta 8: Clan -->
+            <!-- Pergunta 7: Clan -->
             <label for="clan">💥 Você já foi de algum clan?</label>
             <div class="radio-buttons">
                 <input type="radio" id="sim" name="clan" value="Sim" required>
@@ -163,45 +151,6 @@
     <div class="creditos">
         Créditos: <a href="mailto:contato@fxp.com" style="color: #aaa;">codernador de logistica mcflay</a>
     </div>
-
-    <script>
-        document.getElementById("recrutamento-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-           
-            const nome = document.getElementById("nome").value;
-            const nametag = document.getElementById("nametag").value;
-            const plataforma = document.getElementById("plataforma").value;
-            const motivo = document.getElementById("motivo").value;
-            const idade = document.getElementById("idade").value;
-            const funcionalidade = document.getElementById("funcionalidade").value;
-            const clan = document.querySelector('input[name="clan"]:checked').value;
-
-            // Criar arquivo txt(temporario)
-            const content = `
-                Nome: ${nome}
-                Nametag: ${nametag}
-                Plataforma: ${plataforma}
-                Motivo: ${motivo}
-                Idade: ${idade}
-                Funcionalidade: ${funcionalidade}
-                Clan: ${clan}
-                nameteste: ${nameteste}
-            `;
-
-            
-            const blob = new Blob([content], { type: 'text/plain' });
-
-            // Criando um link temporário para download
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'respostas_recrutamento.txt';  // Nome do arquivo
-            link.click();  // Aciona o download
-
-            // mensagem que abaixou
-            alert('isso e apenas um teste!');
-        });
-    </script>
 
 </body>
 </html>
