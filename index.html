@@ -1,164 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recrutamento da FXP(beta)</title>
+    <title>Formulário - Tema Carros</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-image: url('FXP.png'); /* Caminho da imagem de fundo */
-            background-size: cover; /* Faz a imagem cobrir toda a tela */
-            background-position: center; /* Centraliza a imagem */
-            background-repeat: no-repeat; /* Impede que a imagem se repita */
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background: url('https://wallpaperaccess.com/full/3747348.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: white;
-            position: relative;
         }
         .container {
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 100%;
             max-width: 500px;
-            background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semitransparente para melhorar a legibilidade */
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
         h1 {
             text-align: center;
-            font-size: 28px;
+            font-size: 2rem;
+            color: #f7d920;
             margin-bottom: 20px;
-            color: #9b59b6;
         }
         label {
-            font-size: 18px;
+            font-weight: bold;
             display: block;
-            margin-bottom: 8px;
+            margin: 10px 0 5px;
         }
-        input, textarea {
+        input, select, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #9b59b6;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 16px;
-            background-color: #1a001f;
-            color: white;
+            font-size: 1rem;
         }
-        input:focus, textarea:focus {
-            border-color: #8e44ad;
-            outline: none;
-        }
-        button {
-            padding: 12px 20px;
-            background-color: #9b59b6;
-            color: white;
-            border: none;
-            border-radius: 5px;
+        input[type="submit"] {
+            background-color: #f7d920;
+            color: black;
+            font-weight: bold;
             cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
-            background-color: #8e44ad;
+        input[type="submit"]:hover {
+            background-color: #ffcc00;
         }
-
-        .creditos {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            font-size: 14px;
-            color: #aaa;
-        }
-
-        .radio-buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .radio-buttons input[type="radio"] {
-            display: none;
-        }
-
-        .radio-buttons label {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            display: inline-block;
+        .footer {
             text-align: center;
-            font-size: 16px;
-            width: 100px;
-            transition: background-color 0.3s;
-        }
-
-        .radio-buttons input[type="radio"]:checked + label {
-            background-color: #1f06ff;
-        }
-
-        .radio-buttons label:hover {
-            background-color: #719134;
+            margin-top: 20px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Recrutamento da FXP(beta)</h1>
+        <h1>Formulário do macuin</h1>
+        <form action="#" method="POST">
+            <label for="name">Qual seu nome?</label>
+            <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
 
-        <form action="https://formsubmit.co/gerfocenow199@gmail.com" method="POST">
-            <!-- Pergunta 1: Nome -->
-            <label for="nome">👤 Qual seu nome?</label>
-            <input type="text" id="nome" name="name" required>
+            <label for="number">Qual seu CPF?</label>
+            <input type="number" id="cpf"
 
-             <!-- Pergunta teste: Nome -->
-             <label for="discord">qual seu Discord?</label>
-             <input type="text" id="discord" name="discord" required>
- 
+            <input for="idade">Qual sua idade</label>
+            
+            <label for="car">Com quem voce morra?</label>
+            <select id="car" name="car" required>
+                <option value="" disabled selected>Escolha </option>
+                <option value="relampago">mae</option>
+                <option value="mate">pai</option>
+                <option value="doc">seu avo</option>
+                <option value="storm">sua avo</option>
+                <option value="cruz">parente</option>
+            </select>
 
-            <!-- Pergunta 2: Nametag -->
-            <label for="nametag">🎮 Qual sua nametag?</label>
-            <input type="text" id="nametag" name="nametag" required>
+            <label for="speed">quantas pessoas morram na sua casa?</label>
+            <input type="number" id="speed" name="speed" placeholder="Exemplo: 4" required>
 
-            <!-- Pergunta 3: Plataforma -->
-            <label for="plataforma">💻 Qual sua plataforma?</label>
-            <input type="text" id="plataforma" name="plataforma" required>
+            <label for="message">conte sobre sua vida pra marcuin</label>
+            <textarea id="message" name="message" rows="5" placeholder="Deixe uma mensagem aqui..."></textarea>
 
-            <!-- Pergunta 4: Motivo -->
-            <label for="motivo">❓ Por qual motivo você quer entrar?</label>
-            <textarea id="motivo" name="motivo" rows="4" required></textarea>
-
-            <!-- Pergunta 5: Idade -->
-            <label for="idade">🤔 Qual sua idade?</label>
-            <input type="number" id="idade" name="idade" required>
-
-            <!-- Pergunta 6: Funcionalidade -->
-            <label for="funcionalidade">🔧 Qual sua funcionalidade?</label>
-            <input type="text" id="funcionalidade" name="funcionalidade" required>
-
-            <!-- Pergunta 7: Clan -->
-            <label for="clan">💥 Você já foi de algum clan?</label>
-            <div class="radio-buttons">
-                <input type="radio" id="sim" name="clan" value="Sim" required>
-                <label for="sim">Sim</label>
-                <input type="radio" id="nao" name="clan" value="Não">
-                <label for="nao">Não</label>
-            </div>
-
-            <button type="submit">Enviar</button>
+            <input type="submit" value="Enviar">
         </form>
+        <div class="footer">
+            &copy; 2024 - Inspirado no filme <strong>Carros</strong>.
+        </div>
     </div>
-
-    <div class="creditos">
-        Créditos: <a href="mailto:contato@fxp.com" style="color: #aaa;">codernador de logistica mcflay</a>
-    </div>
-
 </body>
 </html>
