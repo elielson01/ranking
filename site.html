@@ -1,49 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranking de Beleza</title>
+    <title>Ranking de Lindeza</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            font-family: 'Arial', sans-serif;
             margin: 0;
+            padding: 0;
+            background: url('nigga.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
         }
         h1 {
-            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 20px 0;
+            color: #002776;
+            text-shadow: 1px 1px 2px white;
         }
-        .buttons {
+        .ranking-container {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
+            padding: 20px;
         }
-        button {
-            background-color: #ff5722;
+        .person-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ac24e2;
+            border-radius: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .person-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .person-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .person-info {
+            padding: 15px;
+        }
+        .person-info p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .saiba-mais {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #000000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .saiba-mais:hover {
+            background-color: #1ebdee;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 2px solid #682259;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .modal h2 {
+            color: #ff0000;
+        }
+        .modal p {
+            margin: 10px 0;
+            color: #333;
+        }
+        .close-modal {
+            background-color: #ff4d4d;
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            cursor: pointer;
+            padding: 8px 15px;
             border-radius: 5px;
-            transition: background 0.3s;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
-            background-color: #e64a19;
+        .close-modal:hover {
+            background-color: #ff1a1a;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 159, 196, 0.8);
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Ranking de Beleza</h1>
-    <div class="buttons">
-        <button onclick="window.location.href='9ano1.html'">9º Ano 1</button>
-        <button onclick="window.location.href='9ano2.html'">9º Ano 2</button>
+    <h1>Ranking de Lindeza - 8ano1</h1>
+    <div class="ranking-container">
+        <!-- Card 1 -->
+        <div class="person-card">
+            <img src="elielson.jpg" alt="Pessoa 1">
+            <div class="person-info">
+                <h2>#1 Elielson</h2>
+                <p>Descrição: Beleza tropical com um sorriso contagiante e rosto único.</p>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="person-card">
+            <img src="bruno.jpg" alt="Pessoa 2">
+            <div class="person-info">
+                <h2>#2 Bruno Henrique</h2>
+                <p>Descrição: Um charme de vira-lata com muita simpatia e carisma.</p>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="person-card">
+            <img src="ravy.jpg" alt="Pessoa 3">
+            <div class="person-info">
+                <h2>#3 Ravy</h2>
+                <p>Descrição: Elegância natural do seu nariz com um brilho que ilumina qualquer lugar.</p>
+            </div>
+        </div>
+        <!-- Card 999999 -->
+        <div class="person-card">
+            <img src="alex.jpg" alt="Pessoa 99999">
+            <div class="person-info">
+                <h2>#99 Alex</h2>
+                <p>Descrição: Com sua gorduras alimenta a África.</p>
+                <button class="saiba-mais" onclick="openModal()">Saiba mais</button>
+            </div>
+        </div>
     </div>
+    
+    <!-- Modal -->
+    <div class="overlay" onclick="closeModal()"></div>
+    <div class="modal">
+        <h2>error de tamanho</h2>
+        <p>As informações Sao muito pesada, pode esta pesando acima de 20GB</p>
+        <button class="close-modal" onclick="closeModal()">Fechar</button>
+    </div>
+
+    <footer>
+        &copy; quem leu é gay.
+    </footer>
+
+    <script>
+        function openModal() {
+            document.querySelector('.modal').style.display = 'block';
+            document.querySelector('.overlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.querySelector('.modal').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
