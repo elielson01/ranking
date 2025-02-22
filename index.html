@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site com Áudio e Fundo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+        .hidden-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>erro aperta aqui novamente</h1>
+    <button class="hidden-button" onclick="startAudioAndChangeBackground()"></button>
+    <audio id="audio">
+        <source src="Iframe Cai de boca no meu busetão [a4HwJTSpDek].mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    <script>
+        function startAudioAndChangeBackground() {
+            document.body.style.backgroundImage = "url('download.jpeg')";
+            const audio = document.getElementById("audio");
+            audio.play().catch(() => {
+        
+            });
+        }
+    </script>
+</body>
+</html>
